@@ -1,70 +1,118 @@
-# Getting Started with Create React App
+# TheOdinProject - Task List React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a solution to the [Task List React App](https://www.theodinproject.com/lessons/node-path-javascript-handle-inputs-and-render-lists).
 
-## Available Scripts
+## Table of contents
 
-In the project directory, you can run:
+- [Overview](#overview)
+  - [The challenge](#the-challenge)
+  - [Screenshot](#screenshot)
+  - [Links](#links)
+- [My process](#my-process)
+  - [Built with](#built-with)
+  - [What I learned](#what-i-learned)
+  - [Continued development](#continued-development)
+  - [Useful resources](#useful-resources)
+- [Author](#author)
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Overview
 
-### `npm test`
+### The challenge
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Users should be able to:
 
-### `npm run build`
+- Use state and props with React
+- Handle inputs with React
+- Create render list with React
+- Handle events with React
+- Implement delete and edit buttons
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Screenshot
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+![](./img/screenshot1.jpg)
+![](./img/screenshot2.jpg)
+![](./img/screenshot3.jpg)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Links
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- Solution URL: [https://github.com/TheLegend760/Task-List-React-TheOdinProject]
+- Live Site URL: [https://thelegend760.github.io/Task-List-React-TheOdinProject/]
+## My process
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Built with
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- [React](https://reactjs.org/) - JS library
 
-## Learn More
+### What I learned
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+I learned on how to properly pass props and the state through props. I was able to figure out how to pass functions as props and have them to be able to use on child elements with props. I was able to learn how to use useState on functions, which is they have not shown in the curriculum yet. I was having an issue where when I click the edit button it was displaying the input and edit button on all the task instead of just the one that is being clicked. I found out that I was passing the edit state on the app component as a whole. The solution was to use the edit state on the task function that creates the task individually, this allowed me to be able to only have the edit input and edit submit on the task that is being clicked. 
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
+```js
+function Task(props) {
+    const { task, clickHandler, updateHandler} = props
+    const [edit, setEdit] = useState(false)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+    function handleEdit() {
+      if(edit) {
+        setEdit(false)
+      } else {
+        setEdit(true)
+      }
+    }
 
-### Analyzing the Bundle Size
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+    let viewMode = {}
+    let editMode = {
+    }
+    
+    if(edit) {
+      viewMode.display = 'none'
+    } else {
+      editMode.display ='none'
+    }
+    
+  return (
+    <div className='task'>
+        <h3 style={viewMode}>{task.text}</h3>
+        <input
+        type='text'
+        style={editMode}
+        className='edit-input'
+        onChange={e => {
+          updateHandler(task.id, e.target.value)}}
+        />
+        <button style={editMode} className='edit-button' onClick={() => handleEdit()}>Edit Task</button>
+        <div className='icons' style={viewMode}>
+          <FaEdit className='edit icon' onClick={() => handleEdit()}/>
+          <AiOutlineDelete className='delete icon'  onClick={() => clickHandler(task.id)}/>
+        </div>
+    </div>
+  )
+}
 
-### Making a Progressive Web App
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
 
-### Advanced Configuration
+### Continued development
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+I would like to make my coder a lot easier to read. I felt like it was a little hard for me to compare my task list to others via youtube due to me wanting to keep the code layout as the same as TheOdinProject. I was like to practice more on state, specifically on changing the state. 
 
-### Deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
 
-### `npm run build` fails to minify
+### Useful resources
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- [Stackoverflow](https://www.stackoverflow.com) - This helped me figure out the functionalities of functions with react
+- [Brian Design - Youtube](https://www.youtube.com/watch?v=E1E08i2UJGI&t=2410s) - This video helped me understand how state works and how to create a task list
+
+
+## Author
+
+- Twitter - [@CoderKevo](https://www.twitter.com/CoderKevo)
+
+
+
