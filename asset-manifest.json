@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/Task-List-React-TheOdinProject/static/css/main.457f98bc.css",
+    "main.js": "/Task-List-React-TheOdinProject/static/js/main.a064197a.js",
+    "static/js/787.dfd8b66f.chunk.js": "/Task-List-React-TheOdinProject/static/js/787.dfd8b66f.chunk.js",
+    "index.html": "/Task-List-React-TheOdinProject/index.html",
+    "main.457f98bc.css.map": "/Task-List-React-TheOdinProject/static/css/main.457f98bc.css.map",
+    "main.a064197a.js.map": "/Task-List-React-TheOdinProject/static/js/main.a064197a.js.map",
+    "787.dfd8b66f.chunk.js.map": "/Task-List-React-TheOdinProject/static/js/787.dfd8b66f.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.457f98bc.css",
+    "static/js/main.a064197a.js"
+  ]
+}
