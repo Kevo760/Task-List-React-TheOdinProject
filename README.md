@@ -39,8 +39,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [https://github.com/TheLegend760/Task-List-React-TheOdinProject]
-- Live Site URL: [https://thelegend760.github.io/Task-List-React-TheOdinProject/]
+- Solution URL: [https://github.com/Kevo760/Task-List-React-TheOdinProject]
+- Live Site URL: [https://Kevo760.github.io/Task-List-React-TheOdinProject/]
 ## My process
 
 ### Built with
